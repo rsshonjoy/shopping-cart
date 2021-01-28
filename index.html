@@ -78,19 +78,27 @@
       </div>
       <script>
          function handleProductChange(product, isIncrease){
-            const phoneInput = document.getElementById(product + "-count");
-            const phoneCount = parseInt(phoneInput.value);
+            const productInput = document.getElementById(product + "-count");
+            const productCount = parseInt(productInput.value);
             // const caseNewCount = caseCount - 1;
-            let phoneNewCount = phoneCount;
+            let productNewCount = productCount;
             if (isIncrease == true) {
-            phoneNewCount = phoneCount + 1;
+            productNewCount = productCount + 1;
             }
-            if (isIncrease == false && phoneCount > 0) {
-               phoneNewCount = phoneCount - 1;
+            if (isIncrease == false && productCount > 0) {
+            productNewCount = productCount - 1;
             }
-            phoneInput.value = phoneNewCount;
-            const phoneTotal = phoneNewCount * 59;
-            document.getElementById(product + "-total").innerText = "$" + phoneTotal;
+            productInput.value = productNewCount;
+            let productTotal = 0;
+            if (product == "phone") {
+               productTotal = productNewCount * 1219;
+            }
+            if (product == "case") {
+               productTotal = productNewCount * 59;
+            }
+            
+            // const productTotal = productNewCount * 59;
+            document.getElementById(product + "-total").innerText = "$" + productTotal;
          }
          // function handlePhoneChange(isIncrease){
          //    const phoneInput = document.getElementById("phone-count");
